@@ -262,4 +262,7 @@ poetry.lock
 # LSP config files
 pyrightconfig.json
 
+measurements.txt
+compare.py
+
 # End of https://www.toptal.com/developers/gitignore/api/python,jetbrains+all
