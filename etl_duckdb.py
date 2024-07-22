@@ -2,7 +2,7 @@ import duckdb
 import time
 
 def create_duckdb():
-    duckdb.sql("""
+    result = duckdb.sql("""
         SELECT cidade,
             MIN(temperatura) AS min_temperature,
             CAST(AVG(temperatura) AS DECIMAL(3,1)) AS mean_temperature,
@@ -10,7 +10,9 @@ def create_duckdb():
         FROM read_csv("data/measurements.txt", AUTO_DETECT=FALSE, sep=';', columns={'cidade':VARCHAR, 'temperatura': 'DECIMAL(3,1)'})
         GROUP BY cidade
         ORDER BY cidade
-    """).show()
+    """)
+    result.show()
+    result.write_parquet("data/measurements_summary.parquet")
 
 if __name__ == "__main__":
     import time
