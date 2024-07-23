@@ -99,7 +99,7 @@ def build_test_data(weather_station_names, num_rows_to_create):
     print(f"Tempo decorrido: {format_elapsed_time(elapsed_time)}")
 
 def main():
-    num_rows_to_create = 1_000_000
+    num_rows_to_create = 1_000_000_000
     weather_station_names = []
     weather_station_names = build_weather_station_name_list()
     print(estimate_file_size(weather_station_names, num_rows_to_create))
